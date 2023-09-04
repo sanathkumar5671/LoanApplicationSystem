@@ -10,5 +10,5 @@ To run this project:
 ## Command to Run the Project
 After Cloning the repo and installing docker, run the below command:
 
-### docker-compose up --build
+### `docker-compose up --build`
 
