@@ -5,12 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function LoanApplicationForm() {
   const { REACT_APP_API_URL } = process.env; // API Endpoint which assigns Application ID and starts application.
-  console.log(
-    "ENV URL ----> ",
-    REACT_APP_API_URL,
-    "and type of the cost --> ",
-    typeof REACT_APP_API_URL
-  );
   const [applicationId, setApplicationId] = useState(null);
 
   /*
@@ -21,7 +15,7 @@ export default function LoanApplicationForm() {
       try {
         const response = await makeApiRequest(
           REACT_APP_API_URL + "/initiate-application",
-          "POST"
+          "POST",
         ); //
         setApplicationId(response["application"]["id"]);
       } catch (error) {

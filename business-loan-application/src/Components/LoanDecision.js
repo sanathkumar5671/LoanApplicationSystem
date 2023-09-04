@@ -14,7 +14,7 @@ export default function LoanDecision() {
       try {
         const response = await makeApiRequest(
           REACT_APP_API_URL + "/decisionEngine",
-          "POST"
+          "POST",
         ); // Replace with your API URL
         setData(response);
         setLoading(false);

@@ -55,7 +55,7 @@ app.post("/submit-application", (req, res) => {
   const applicationId = parseInt(req.body.id);
   const formData = req.body.form;
   const balanceSheet = req.body.balanceSheet;
-  //Pushing data globally to make it available 
+  //Pushing data globally to make it available
   formDataDuplicate.push(formData);
   balanceSheetData.push(balanceSheet);
 
@@ -67,14 +67,14 @@ app.post("/submit-application", (req, res) => {
 
   // Update application status and data
   application.status = "completed";
-  
+
   res.json({ message: "Loan application completed", application });
 });
 
 // Endpoint for decision Engine
 app.post("/decisionEngine", (req, res) => {
   const profitOrLossSummaryData = calculateProfitOrLossSummary(
-    balanceSheetData[0]
+    balanceSheetData[0],
   );
   const loanAmountData = formDataDuplicate[0]["loanAmount"];
   const businessData = {
@@ -85,7 +85,7 @@ app.post("/decisionEngine", (req, res) => {
   };
   const preAssessmentValue = assessLoanApplication(
     balanceSheetData[0],
-    loanAmountData
+    loanAmountData,
   );
   const decision = loanApplicationDecision(businessData, preAssessmentValue);
 

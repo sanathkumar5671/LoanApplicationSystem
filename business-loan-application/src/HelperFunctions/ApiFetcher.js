@@ -1,15 +1,15 @@
 /**
  * This is a helper function and not a component, which helps React components Fetch API data from various Endpoints.
  * This makes the code more reuseable.
- * @param {string} url 
- * @param {string} method 
- * @param {object} data 
+ * @param {string} url
+ * @param {string} method
+ * @param {object} data
  * @returns {object} HTTP Response
  */
-export const makeApiRequest = async (url, method = 'GET', data = null) => {
+export const makeApiRequest = async (url, method = "GET", data = null) => {
   try {
     const headers = {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     };
 
     const config = {
@@ -17,7 +17,7 @@ export const makeApiRequest = async (url, method = 'GET', data = null) => {
       headers,
     };
 
-    if (method === 'POST' && data) {
+    if (method === "POST" && data) {
       config.body = JSON.stringify(data);
     }
 
