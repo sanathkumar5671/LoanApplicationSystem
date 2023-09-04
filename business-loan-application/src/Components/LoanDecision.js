@@ -20,7 +20,7 @@ export default function LoanDecision() {
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error.message);
-        setData("Please request your service provider using our email ID: loners@gmail.com");
+        setData({message:"Please request your service provider using our email ID: loners@gmail.com"});
         setLoading(false);
       }
     }
