@@ -1,0 +1,64 @@
+body {
+  background-color: #f5e1e1;
+}
+.App {
+  padding: 20px;
+  text-align: center;
+}
+
+header {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+table {
+  border: 2px solid forestgreen;
+  width: 100%;
+}
+
+th {
+  border-bottom: 1px solid black;
+}
+
+td {
+  text-align: center;
+}
+.reviewSubmit #review {
+  display: inline;
+  margin: 10px auto;
+}
+
+.reviewSubmit button {
+  padding: 10px;
+  background-color: #548dc5;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.message
+{
+  border: red 1px solid;
+  padding: auto;
+}
+
+.finalDecision
+{
+  padding: 15%;
+  align-content: center;
+  text-align: center;
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif;
+}
