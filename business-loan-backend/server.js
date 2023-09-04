@@ -49,9 +49,11 @@ app.get("/balanceSheet", (req, res) => {
 });
 
 // Endpoint to complete a loan application
-let formDataDuplicate = [];
-let balanceSheetData = [];
+let formDataDuplicate;
+let balanceSheetData;
 app.post("/submit-application", (req, res) => {
+  balanceSheetData = [];
+  formDataDuplicate = [];
   const applicationId = parseInt(req.body.id);
   const formData = req.body.form;
   const balanceSheet = req.body.balanceSheet;
@@ -73,23 +75,28 @@ app.post("/submit-application", (req, res) => {
 
 // Endpoint for decision Engine
 app.post("/decisionEngine", (req, res) => {
-  const profitOrLossSummaryData = calculateProfitOrLossSummary(
-    balanceSheetData[0],
-  );
-  const loanAmountData = formDataDuplicate[0]["loanAmount"];
-  const businessData = {
-    companyName: formDataDuplicate[0]["companyName"],
-    yearEstablished: formDataDuplicate[0]["startYear"],
-    profitOrLossSummary: profitOrLossSummaryData,
-    loanAmount: loanAmountData,
-  };
-  const preAssessmentValue = assessLoanApplication(
-    balanceSheetData[0],
-    loanAmountData,
-  );
-  const decision = loanApplicationDecision(businessData, preAssessmentValue);
+  try {
+    const profitOrLossSummaryData = calculateProfitOrLossSummary(
+      balanceSheetData[0]
+    );
+    const loanAmountData = formDataDuplicate[0]["loanAmount"];
+    const businessData = {
+      companyName: formDataDuplicate[0]["companyName"],
+      yearEstablished: formDataDuplicate[0]["startYear"],
+      profitOrLossSummary: profitOrLossSummaryData,
+      loanAmount: loanAmountData,
+    };
+    const preAssessmentValue = assessLoanApplication(
+      balanceSheetData[0],
+      loanAmountData
+    );
+    const decision = loanApplicationDecision(businessData, preAssessmentValue);
 
-  res.send(decision);
+    res.send(decision);
+  } catch (e) {
+    e = {message: "Please request your service provider using our email ID: loners@gmail.com"};
+    res.status(500).send(e);
+  }
 });
 
 // Start the server
