@@ -1,6 +1,6 @@
 # Problem Statement
 
-This is single page react appliction project which was based on the given Problem Statement By Demyst. Please view the complete statement {https://github.com/DemystData/code-kata/blob/main/README.md}.
+This is single page react appliction project which was based on the given Problem Statement By Demyst. Please view the complete statement {https://github.com/DemystData/code-kata/blob/main/README.md }
 
 ## Pre-requirements
 
